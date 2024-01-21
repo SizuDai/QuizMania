@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Game - API Project</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="quizstyle.css">
+</head>
+<body class = "flex">
+
+    <div class="modal" id="details-modal">
+        <div class="modal-content">
+            <span class="close" id="modal-close">&times;</span>
+            <div id="modal-details"></div>
+        </div>
+    </div>
+    <div class = "wrapper">
+        <div class = "quiz-container">
+            <div class = "quiz-head">
+                <h1 class = "quiz-title">Quiz Game</h1>
+                <div class = "quiz-score flex">
+                    <span id = "asked-question"></span>/<span id = "total-question"></span>
+                </div>
+            </div>
+            <div class = "quiz-body">
+                <h2 class = "quiz-question" id = "question"><!--What is the full form of HTTP? --></h2>
+                <ul class = "quiz-options">
+                    <!-- <li>1. Hyper text transfer package</li>
+                    <li>2. Hyper text transfer protocol</li>
+                    <li>3. Hyphenation text test program</li>
+                    <li>4. None of the above</li> -->
+                </ul>
+                <div id = "result">
+                </div>
+            </div>
+            <div class = "quiz-foot">
+                <button type = "button" id = "check-answer">Submit</button>
+                <button type = "button" id = "play-again">Play Again!</button><br>
+                <button type = "button" id = "view-details">View Details</button>
+            </div>
+            <div id="end-screen" style="display: none;">
+                <button type="button" id="delete-profile">Delete Profile</button>
+            </div>
+        </div>
+    </div>
+    <script>
+        // Get the username from the URL query parameter
+        const queryString = window.location.search;
+        const urlParams = new URLSearchParams(queryString);
+        const username = urlParams.get('username');
+    
+        // Make the username global so it can be accessed in quiz-script.js
+        window.quizUsername = username;
+    </script>
+<script src="quiz-script.js"></script>
+</body>
+</html>
